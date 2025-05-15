@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Beranda - Borneo Karet Getah</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f0fdf4;
+      color: #333;
+    }
+
+    header {
+      background: #2e7d32;
+      padding: 20px;
+      color: white;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+    }
+
+    h2,
+    h3 {
+      color: #2e7d32;
+    }
+
+    .img-wrapper {
+      margin: 20px 0;
+      cursor: pointer;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .img-wrapper:hover img {
+      transform: scale(1.02);
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #2e7d32;
+      color: white;
+      margin-top: 40px;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 10px;
+    }
+
+    .lightbox:target {
+      display: flex;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 30px;
+      text-decoration: none;
+    }
+
+    .logo{
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Borneo Karet Getah</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="profil.html">Profil</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <div class="logo">
+    <img src="LOGO.png" height="300px" style="border-radius: 15px;"/>
+  </div>
+
+  <div class="container">
+    <h2>Selamat Datang di Borneo Karet Getah</h2>
+    <p>Kami menyediakan getah karet terbaik dari hutan Kalimantan untuk kebutuhan industri dalam dan luar negeri.</p>
+
+    <div class="img-wrapper">
+      <a href="#img1"><img src="Penyadapan Getah Karet.jpeg" alt="Penyadapan Getah Karet"></a>
+    </div>
+    <p>Getah karet alami langsung dari pohon karet Kalimantan.</p>
+
+    <h3>Fun Fact!</h3>
+    <p>Indonesia adalah produsen karet terbesar ke-3 di dunia setelah Thailand dan Vietnam.</p>
+
+    <h3>Potensi Lokal</h3>
+    <p>Getah karet Kalimantan dikenal lebih pekat dan cocok untuk lateks berkualitas tinggi.</p>
+
+    <div class="img-wrapper">
+      <a href="#img2"><img src="Petani Karet Lokal.jpg" alt="Petani Karet Lokal"></a>
+    </div>
+
+    <h3>Kontribusi Ekonomi</h3>
+    <p>Ribuan petani bergantung pada industri ini, memperkuat ekonomi lokal dan nasional.</p>
+
+    <div class="img-wrapper">
+      <a href="#img3"><img src="Proses Pengolahan Karet.jpg" alt="Proses Pengolahan Karet"></a>
+    </div>
+
+    <h3>Manfaat dan Kegunaan Getah Karet</h3>
+    <ul>
+      <li>Digunakan dalam industri ban kendaraan</li>
+      <li>Bahan dasar pembuatan sarung tangan medis</li>
+      <li>Untuk industri tekstil, isolator, hingga alat rumah tangga</li>
+      <li>Ramah lingkungan dan dapat terurai secara alami</li>
+    </ul>
+
+    <h3>Daerah Penghasil Getah Karet Terbanyak di Indonesia</h3>
+    <ul>
+      <li><strong>Sumatera Selatan</strong> - Sentra kebun karet rakyat</li>
+      <li><strong>Jambi</strong> - Banyak perkebunan rakyat & perusahaan besar</li>
+      <li><strong>Kalimantan Timur</strong> - Sumber utama produk kami</li>
+      <li><strong>Riau dan Sumatera Utara</strong> - Produksi ekspor besar</li>
+    </ul>
+
+    <div class="img-wrapper">
+      <a href="#img4"><img src="Kebun Karet Indonesia.jpeg" alt="Kebun Karet Indonesia"></a>
+    </div>
+
+    <h3>Sejarah Singkat Getah Karet di Kalimantan</h3>
+    <p>Budidaya karet dimulai sejak masa kolonial dan berkembang pesat. Kalimantan menjadi wilayah penting karena
+      tanahnya subur dan berkelanjutan.</p>
+
+    <h3>Proses Penyadapan & Pengolahan</h3>
+    <p>Petani menyadap karet dengan teknik ramah lingkungan. Getah disaring, dikeringkan, lalu diolah jadi lembaran
+      untuk industri.</p>
+
+    <h3>Info Ekspor</h3>
+    <p>Karet kami diekspor ke Malaysia, China, dan India untuk kebutuhan otomotif & medis.</p>
+
+    <h3>Kualitas Teruji</h3>
+    <p>Produk kami telah melewati uji laboratorium internasional untuk memastikan kemurnian dan kekuatan lateks.</p>
+
+    <h3>Dukungan Lingkungan</h3>
+    <p>Kami bekerja sama dengan petani lokal untuk melestarikan hutan dan meningkatkan kesejahteraan masyarakat.</p>
+  </div>
+
+  <div id="img1" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="Penyadapan Getah Karet.jpeg" alt="Foto 1">
+  </div>
+  <div id="img2" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="Petani Karet Lokal.jpg" alt="Foto 2">
+  </div>
+  <div id="img3" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="Proses Pengolahan Karet.jpg" alt="Foto 3">
+  </div>
+  <div id="img4" class="lightbox">
+    <a href="#" class="close">&times;</a>
+    <img src="KE" alt="Foto 4">
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Borneo Karet Getah</p>
+  </footer>
+</body>
+
+</html>

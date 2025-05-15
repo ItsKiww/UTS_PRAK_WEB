@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Produk - Borneo Karet Getah</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #f0fff0;
+    }
+
+    .produk {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .item {
+      background: #f5fff5;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 250px;
+    }
+
+    .item img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .item p {
+      margin: 10px 0;
+    }
+
+    .item button {
+      padding: 8px 16px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .item button:hover {
+      background: #1b5e20;
+    }
+
+    /* Modal Transaksi */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 20px;
+      color: #2e7d32;
+    }
+
+    .modal-content .status-success {
+      color: green;
+    }
+
+    .modal-content .status-fail {
+      color: red;
+    }
+
+    .modal-content button {
+      margin-top: 20px;
+      padding: 8px 16px;
+      background: #2e7d32;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Borneo Karet Getah</h1>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="galeri.html">Galeri</a>
+      <a href="profil.html">Profil</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
+  </header>
+
+  <main>
+    <h2 style="text-align:center">Produk Premium</h2>
+    <div class="produk">
+      <div class="item">
+        <img src="GETAH MENTAH.jpeg" alt="Getah Mentah" onclick="showLightbox(this)" />
+        <p>Getah Karet Alam (Mentah) - Rp 12.000/kg</p>
+        <button onclick="prosesTransaksi('Getah Karet Alam (Mentah)')">Beli Sekarang</button>
+      </div>
+      <div class="item">
+        <img src="GETAH LOKAL.jpg" alt="Getah Olahan" onclick="showLightbox(this)" />
+        <p>Getah Karet Olahan - Rp 18.000/kg</p>
+        <button onclick="prosesTransaksi('Getah Karet Olahan')">Beli Sekarang</button>
+      </div>
+      <div class="item">
+        <img src="LATEKS PREMIUM.jpg" alt="Lateks Premium" onclick="showLightbox(this)" />
+        <p>Lateks Premium - Rp 22.000/kg</p>
+        <button onclick="prosesTransaksi('Lateks Premium')">Beli Sekarang</button>
+      </div>
+    </div>
+
+    <h2 style="text-align:center">Produk Lokal</h2>
+    <div class="produk">
+      <div class="item">
+        <img src="SHEET KARET.jpg" alt="Sheet Karet" onclick="showLightbox(this)" />
+        <p>Getah Karet Kering (Sheet) - Rp 15.000/kg</p>
+        <button onclick="prosesTransaksi('Getah Karet Kering')">Beli Sekarang</button>
+      </div>
+      <div class="item">
+        <img src="BLOCK RUBBER.jpg" alt="Block Rubber" onclick="showLightbox(this)" />
+        <p>Getah Karet Blok - Rp 20.000/kg</p>
+        <button onclick="prosesTransaksi('Getah Karet Blok')">Beli Sekarang</button>
+      </div>
+      <div class="item">
+        <img src="GETAH LOKAL.jpg" alt="Getah Lokal Kalimantan" onclick="showLightbox(this)" />
+        <p>Getah Karet Lokal Kalimantan - Rp 13.000/kg</p>
+        <button onclick="prosesTransaksi('Getah Karet Lokal Kalimantan')">Beli Sekarang</button>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Transaksi -->
+  <div class="modal" id="modalTransaksi">
+    <div class="modal-content" id="modalContent">
+      <h2>Status Transaksi</h2>
+      <p id="statusPesan">Memproses...</p>
+      <button onclick="tutupModal()">Tutup</button>
+    </div>
+  </div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;z-index:998;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.8);justify-content:center;align-items:center;">
+    <img id="lightbox-img" src="" alt="Preview" style="max-width:80%;max-height:80%;" />
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Borneo Karet Getah</p>
+  </footer>
+
+  <script>
+    function prosesTransaksi(namaProduk) {
+      const modal = document.getElementById('modalTransaksi');
+      const statusPesan = document.getElementById('statusPesan');
+      modal.style.display = 'flex';
+      statusPesan.textContent = 'Memproses pesanan untuk "' + namaProduk + '"...';
+      setTimeout(() => {
+        const berhasil = Math.random() > 0.5;
+        statusPesan.innerHTML = berhasil
+          ? `<span class="status-success">Transaksi untuk "${namaProduk}" <strong>Berhasil!</strong></span>`
+          : `<span class="status-fail">Transaksi untuk "${namaProduk}" <strong>Gagal!</strong> Silakan coba lagi.</span>`;
+      }, 1000);
+    }
+
+    function tutupModal() {
+      document.getElementById('modalTransaksi').style.display = 'none';
+    }
+
+    function showLightbox(img) {
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
